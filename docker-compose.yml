@@ -82,6 +82,7 @@ services:
       - torrent_downloads:/downloads
 
 volumes:
+  dtl:
   geth:
   shared:
   op_geth:
