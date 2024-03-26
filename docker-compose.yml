@@ -18,15 +18,6 @@ services:
       - ${PORT__L2GETH_HTTP:-9991}:8545
       - ${PORT__L2GETH_WS:-9992}:8546
 
-  healthcheck:
-    image: ethereumoptimism/replica-healthcheck:${IMAGE_TAG__HEALTHCHECK:-latest}
-    restart: unless-stopped
-    env_file:
-      - ./envs/common/healthcheck.env
-      - .env
-    ports:
-      - ${PORT__HEALTHCHECK_METRICS:-7300}:7300
-
   op-geth:
     image: us-docker.pkg.dev/oplabs-tools-artifacts/images/op-geth:v1.101308.2
     restart: unless-stopped
